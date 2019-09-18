@@ -1,5 +1,5 @@
 
-#I-EDIT 
+# I-EDIT 
 
 ### Internet Editor
 
@@ -77,12 +77,12 @@ the browser tabs. I-EDIT will work with any
 
   For more details look at [Quick Help](../ieditHelp.html)
 
-###Screen Shots:
+### Screen Shots:
 
 You can open browser tabs as all editor (iedit.html) or split editor and render frame (iedit2.html)
-![I-EDIT](../images/tabNOframe.png "All Editor")
+![I-EDIT](images/tabNOframe.png "All Editor")
 
-![I-EDIT](../images/tabwframe.png "Split Editor/Frame")
+![I-EDIT](images/tabwframe.png "Split Editor/Frame")
 
 ![I-EDIT](../images/toolbar1.png "main navigation")
 
@@ -95,7 +95,7 @@ code clips and links can all be changed
 
 ![I-EDIT](../images/designPage.png "Design Page")
 
-#Installation
+# Installation
 
 Your server:
   * LAMP (~~MySQL~~)
