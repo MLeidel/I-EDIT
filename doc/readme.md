@@ -43,7 +43,7 @@ the browser tabs. I-EDIT will work with any
   * Parsedown - [learn more](https://github.com/erusev/parsedown/blob/master/README.md "Github")
   * highlight.js [^2] - [learn more](https://github.com/highlightjs/highlight.js "Github")
   [^2]: Copyright (c) 2006, Ivan Sagalaev All rights reserved.
-  * myJS - my own downsized "_JQuerian_" library [overview](doc/myJSref.html "myJS")
+  * myJS - my own downsized "_JQuerian_" library [overview](myJSref.html "myJS")
 * **Ace Customizations to assist coding:**
   * Ctrl-s => Save
   * Ctrl-r => Render in browser (tab or split frame)
@@ -75,7 +75,7 @@ the browser tabs. I-EDIT will work with any
 
   * Pre-themed for HTML, JAVASCRIPT, PHP, CSS, and MARKDOWN languages
 
-  For more details look at [Quick Help](doc/ieditHelp.html)
+  For more details look at [Quick Help](ieditHelp.html)
 
 ### Screen Shots:
 
