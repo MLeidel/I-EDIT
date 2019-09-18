@@ -43,7 +43,7 @@ the browser tabs. I-EDIT will work with any
   * Parsedown - [learn more](https://github.com/erusev/parsedown/blob/master/README.md "Github")
   * highlight.js [^2] - [learn more](https://github.com/highlightjs/highlight.js "Github")
   [^2]: Copyright (c) 2006, Ivan Sagalaev All rights reserved.
-  * myJS - my own downsized "_JQuerian_" library [overview](https://mldev.io/TArea/user/config/myJSref.html "mldev.io")
+  * myJS - my own downsized "_JQuerian_" library [overview](https://mldev.io/TArea/user/doc/myJSrefer.html "mldev.io")
 * **Ace Customizations to assist coding:**
   * Ctrl-s => Save
   * Ctrl-r => Render in browser (tab or split frame)
