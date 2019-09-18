@@ -89,6 +89,7 @@ You can open browser tabs as all editor (iedit.html) or split editor and render 
 ![I-EDIT](images/toolbar2.png "tool navigation")
 
 code clips and links can all be changed
+
 ![I-EDIT](images/ClipsWindow.png "Clips")
 
 ![I-EDIT](images/gfilesys.png "Grep & Find")
