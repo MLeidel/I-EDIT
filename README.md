@@ -34,7 +34,7 @@ the browser tabs. I-EDIT will work with any
   * Recognizes .md files. Renders HTML from markdown documents.
 
 ---
-##Some Details:
+## Some Details:
 
 * **Written with HTML, CSS, Javascript, PHP**
 * **Uses several powerful components:**
@@ -84,16 +84,16 @@ You can open browser tabs as all editor (iedit.html) or split editor and render 
 
 ![I-EDIT](images/tabwframe.png "Split Editor/Frame")
 
-![I-EDIT](../images/toolbar1.png "main navigation")
+![I-EDIT](images/toolbar1.png "main navigation")
 
-![I-EDIT](../images/toolbar2.png "tool navigation")
+![I-EDIT](images/toolbar2.png "tool navigation")
 
 code clips and links can all be changed
-![I-EDIT](../images/ClipsWindow.png "Clips")
+![I-EDIT](images/ClipsWindow.png "Clips")
 
-![I-EDIT](../images/gfilesys.png "Grep & Find")
+![I-EDIT](images/gfilesys.png "Grep & Find")
 
-![I-EDIT](../images/designPage.png "Design Page")
+![I-EDIT](images/designPage.png "Design Page")
 
 # Installation
 
