@@ -1,0 +1,328 @@
+
+  <!DOCTYPE HTML>
+  <html lang='en-US'>
+  <head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>doc/myJSrefer.md</title>
+<!--
+This source uses the 'highlight.js' library
+Copyright (c) 2006, Ivan Sagalaev
+All rights reserved.
+-->
+  <link rel='stylesheet'
+        href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/default.min.css'>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js'></script>
+
+  </head>
+  <body>
+<style type="text/css">
+body {
+  font: normal 12pt sans-serif;
+}
+</style>
+<p><a name="top"></a></p>
+<h1>myJS function Reference</h1>
+<ol>
+<li><a href="#dom"> DOM FUNCTIONS </a></li>
+<li><a href="#async"> ASYNC FUNCTIONS </a></li>
+<li><a href="#misc"> MISC FUNCTIONS </a></li>
+<li><a href="#cook"> COOKIE FUNCTIONS </a></li>
+<li><a href="#date"> DATE FUNCTIONS </a></li>
+</ol>
+<p>Define in HTML HEAD:</p>
+<pre><code class="language-html">&lt;script type="text/javascript" src="../js/myJS-1.2.js"&gt;&lt;/script&gt;
+&lt;!-- or --&gt;
+&lt;script type="text/javascript" src="../js/myJS-1.2.min.js"&gt;&lt;/script&gt;</code></pre>
+<hr />
+<p><a name="dom"></a></p>
+<h2>DOM FUNCTIONS <a href="#top" title="top">^</a></h2>
+<h3>return CSS property value</h3>
+<p><strong>JS.gss(query, css)</strong></p>
+<pre><code class="language-Javascript">let val = JS.gss("#id", "color"); // returns color value</code></pre>
+<p>Specify the selection and CSS property to retrieve</p>
+<hr />
+<h3>change inline style</h3>
+<p><strong>JS.css(QuerySelect [,css])</strong></p>
+<pre><code class="language-Javascript">    JS.css(".content", "background: black; visibility: visible;")
+
+    JS.css("textarea").background = "black";
+
+    JS.css("#id").visibility = "visible";</code></pre>
+<p>Specify the selection and optionally the css statements.
+Sets the style attribute value of an HTML tag.</p>
+<hr />
+<h3>return DOM object</h3>
+<p><strong>JS.doq(qs)</strong></p>
+<pre><code class="language-Javascript">let obj = JS.doq("#id");</code></pre>
+<p>Given a DOM query selector, return the
+elements object handle.</p>
+<hr />
+<h3>add a class to an HTML element</h3>
+<p><strong>JS.addClass(qs, classname)</strong></p>
+<pre><code class="language-Javascript">JS.addClass("input", "myclass");</code></pre>
+<p>Classname must exist in the classlist.</p>
+<hr />
+<h3>remove a class from an HTML element</h3>
+<p><strong>JS.delClass(qs, classname)</strong></p>
+<pre><code class="language-Javascript">JS.delClass("input", "myclass");</code></pre>
+<p>Classname must exist in the classlist.</p>
+<hr />
+<h3>Set or Get innerHTML</h3>
+<p><strong>JS.htm(qs [,data])</strong></p>
+<pre><code class="language-Javascript">let val = JS.htm("#id"); // get
+JS.htm("#id", val); // set
+</code></pre>
+<hr />
+<h3>toggle 'display' property value</h3>
+<p><strong>JS.tod(qs, mode)</strong></p>
+<pre><code class="language-Javascript">JS.tod("#id", "block");
+JS.tod(".msg1", "inline");</code></pre>
+<p>Toggles an element's display
+property between block|inline and none.</p>
+<hr />
+<h3>make visible</h3>
+<p><strong>JS.show(qs)</strong></p>
+<pre><code class="language-Javascript">JS.show(".msgclass");</code></pre>
+<p>Set selected element to "visible".</p>
+<hr />
+<h3>make hidden</h3>
+<p><strong>JS.hide(qs)</strong></p>
+<pre><code class="language-Javascript">JS.hide(".msgclass");</code></pre>
+<p>Hide selected element.</p>
+<hr />
+<h3>get or set an <em>input</em> value</h3>
+<p><strong>JS.val(qs [,data])</strong></p>
+<pre><code class="language-Javascript">let value = JS.val("#id");  // get value
+JS.val("#id", value); // set value</code></pre>
+<p>Get or Set the form <em>input</em> value
+of the selection.</p>
+<hr />
+<h3>get or set a tag attribute</h3>
+<p><strong>JS.attr(qs, aname [,avalue])</strong></p>
+<pre><code class="language-Javascript">let value = JS.attr("#id", "size"); // get attr value
+JS.attr("#id", "size", "35"); // set attr value</code></pre>
+<p>Get or set HTML tag attributes, like:
+<strong>size='35'</strong></p>
+<hr />
+<p><a name="async"></a></p>
+<h2>ASYNC FUNCTIONS <a href="#top" title="top">^</a></h2>
+<p>example:</p>
+<pre><code class="language-Javascript">JS.webpost("my.php", 1, `postvar1=${var1}&amp;postvar2=${var2}`)
+. . .
+function webresponse(n, text) { 
+  switch (n) {
+    case 1:
+      // do something with text ...
+      break;
+    case 2:
+      // ... and so on
+      break;
+  }
+}</code></pre>
+<p>The function 'webresponse' is used by all of the 
+async functions and you have to code it.
+All of the async functions execute a promise
+which will call webresponse function upon
+completion.</p>
+<h3>read a text file</h3>
+<p><strong>JS.webget(url, n)</strong></p>
+<pre><code class="language-Javascript">JS.webget("myfile.txt", 1);</code></pre>
+<p>Send a request to return the 
+contents of a text file
+residing on the app server.
+'webresponse' is called with n=1
+after the file is read. see example above.</p>
+<hr />
+<h3>read a JSON file</h3>
+<p><strong>JS.webgetjson(url, n)</strong></p>
+<pre><code class="language-Javascript">JS.webgetjson("mydata.json", 1);</code></pre>
+<p>Send a request to return the 
+contents of a JSON file
+residing on the app server.
+'webresponse' returns a JSON <em>object</em>.</p>
+<hr />
+<h3>send request and recieve reponse</h3>
+<p><strong>JS.webpost(url, n, qs)</strong></p>
+<pre><code class="language-Javascript">JS.webpost("handler.php", 1, `postvar1=${var1}&amp;postvar2=${var2}`)</code></pre>
+<p>Probably the most useful - for getting dynamic updates
+to your page.</p>
+<hr />
+<h3>send data to handler w/out response</h3>
+<p><strong>JS.websend(url, qs)</strong></p>
+<pre><code class="language-Javascript">JS.websend(url, `txt=${text2save}`);</code></pre>
+<p>NOTE: webresponse will not be called upon
+completion of this one-way message.</p>
+<hr />
+<p><a name="misc"></a></p>
+<h2>MISC FUNCTIONS <a href="#top" title="top">^</a></h2>
+<h3>sleep</h3>
+<p><strong>JS.sleep( m )</strong></p>
+<pre><code class="language-Javascript">JS.sleep( 2000 ); // wait 2 seconds</code></pre>
+<p>processes milliseconds of time</p>
+<hr />
+<h3>jump to bottom of page</h3>
+<p><strong>JS.scrollBottom()</strong></p>
+<pre><code class="language-Javascript">JS.scrollBottom();</code></pre>
+<p>forces current page to scroll to bottom.</p>
+<hr />
+<h3>random number</h3>
+<p><strong>JS.rand( low, high )</strong></p>
+<pre><code class="language-Javascript">JS.rand( 1, 5 );</code></pre>
+<p>Returns a random number from <em>low</em>
+to <em>high</em> inclusive.</p>
+<hr />
+<h3>selected list item</h3>
+<p><strong>JS.getOptionText( qs )</strong></p>
+<pre><code class="language-Javascript">let txt = JS.getOptionText("#mySelect");</code></pre>
+<p>Returns the currently selected text
+from an HTML <code>&lt;select&gt;</code> element.</p>
+<hr />
+<h3>selected list index</h3>
+<p><strong>JS.getOptionIndex( qs )</strong></p>
+<pre><code class="language-Javascript">let num = JS.getOptionIndex( "#mySelect" );</code></pre>
+<p>Returns the currently selected index from
+an HTML <code>&lt;select&gt;</code> element.</p>
+<hr />
+<h3>value of querystring name-value pair</h3>
+<p><strong>JS.getQvar( var )</strong></p>
+<pre><code class="language-Javascript">let val = JS.getQvar( "name" );</code></pre>
+<p>Returns the value in a querystring
+name/value pair.</p>
+<hr />
+<h3>Title Case</h3>
+<p><strong>JS.titleCase( string )</strong></p>
+<pre><code class="language-Javascript">let msg = JS.titleCase( "hello GAL" ); // -&gt; "Hello Gal"</code></pre>
+<p>Returns a string in title case.</p>
+<hr />
+<h3>copy string to system clipboard</h3>
+<p><strong>JS.setCB( s )</strong></p>
+<pre><code class="language-Javascript">JS.setCB( "put into clipbrd" );</code></pre>
+<p>Will request user's permissions according
+to current standards.</p>
+<hr />
+<h3>paste clipboard contents</h3>
+<p><strong>JS.getCB()</strong></p>
+<pre><code class="language-Javascript">JS.getCB(); // uses callback</code></pre>
+<p>requires the following callback
+that you must code:</p>
+<pre><code class="language-Javascript">function getCBtext(text) { 
+
+  // do something with text
+
+}</code></pre>
+<hr />
+<h3>generate a notification</h3>
+<p><strong>JS.notify( string )</strong></p>
+<pre><code class="language-Javascript">JS.notify( "Good Morning" );</code></pre>
+<p>Creates a system notification -
+Will request user's permissions according
+to current standards.</p>
+<hr />
+<h3>format a decimal number</h3>
+<p><strong>JS.numfix( f, [p] )</strong></p>
+<pre><code class="language-Javascript">let f = 123.4567
+let fd = JS.numfix( f ); // fd = 123.46</code></pre>
+<p>given a floating point 'f' convert<br />
+to 'p' places; default is 2<br />
+returns a float value</p>
+<hr />
+<p><a name="cook"></a></p>
+<h2>COOKIE FUNCTIONS <a href="#top" title="top">^</a></h2>
+<h3>set a cookie</h3>
+<p><strong>JS.setCookie( cname, cvalue [, exdays] )</strong></p>
+<pre><code class="language-Javascript">JS.setCookie("mycook", "valu", 30)</code></pre>
+<hr />
+<h3>get a cookie 8-)</h3>
+<p><strong>JS.getCookie( cname )</strong></p>
+<pre><code class="language-Javascript">let cval = JS.getCookie( "mycook" );</code></pre>
+<hr />
+<h3>delete cookie 8-(</h3>
+<p><strong>JS.deleteCookie( name )</strong></p>
+<pre><code class="language-Javascript">JS.deleteCookie( "mycook" );</code></pre>
+<hr />
+<p><a name="date"></a></p>
+<h2>DATE FUNCTIONS <a href="#top" title="top">^</a></h2>
+<h3>day of week</h3>
+<p><strong>JS.todayDay([DateObj])</strong></p>
+<pre><code class="language-Javascript">let daynbr = JS.todayDay();</code></pre>
+<dl>
+<dt>Returns digit 0..6  </dt>
+<dt>where 0 is Sunday.</dt>
+<dd>
+<p>Uses current <em>date</em> object
+unless you provide one.</p>
+</dd>
+</dl>
+<hr />
+<h3>day of month</h3>
+<p><strong>JS.todayMon([DateObj])</strong></p>
+<pre><code class="language-Javascript">let mnbr = JS.todayMon();</code></pre>
+<p>Returns digit 1..12</p>
+<hr />
+<h3>year</h3>
+<p><strong>JS.todayYear([DateObj])</strong></p>
+<pre><code class="language-Javascript">let yrYYYY = JS.todayYear();</code></pre>
+<p>Returns 4 digit year like 1996.</p>
+<hr />
+<h3>date mm/dd/yyyy</h3>
+<p><strong>JS.getMDY([DateObj])</strong></p>
+<pre><code class="language-Javascript">let mdy = JS.getMDY();</code></pre>
+<hr />
+<h3>date yyyy/mm/dd</h3>
+<p><strong>JS.getYMD([DateObj])</strong></p>
+<pre><code class="language-Javascript">let ymd = JS.getYMD();</code></pre>
+<hr />
+<h3>Hours:Minutes</h3>
+<p><strong>JS.getHM()</strong></p>
+<pre><code class="language-Javascript">let hm = JS.getHM();</code></pre>
+<p>Returns time in HH:MM formatl</p>
+<hr />
+<h3>add days to date</h3>
+<p><strong>JS.addDays(n)</strong></p>
+<pre><code class="language-Javascript">let objDate = JS.addDays(15); // today + 15 days</code></pre>
+<h2>Returns new date object.</h2>
+<h3>Month (short)</h3>
+<p><strong>JS.getShortMon(n)</strong></p>
+<pre><code class="language-Javascript">let smonth = JS.getShortMon(n);</code></pre>
+<p>Returns 3 character month, like: Nov
+n = the month number 1-12.</p>
+<hr />
+<h3>Month (long)</h3>
+<p><strong>JS.getLongMon(n)</strong></p>
+<pre><code class="language-Javascript">let month = JS.getLongMon(11);</code></pre>
+<p>Returns month spelled out, like: November
+n = the month number 1-12.</p>
+<hr />
+<h3>Day (short)</h3>
+<p><strong>JS.getShortDay(n)</strong></p>
+<pre><code class="language-Javascript">let sday = JS.getShortDay(3); // Wed</code></pre>
+<p>Returns 3 character day of week.</p>
+<hr />
+<h3>Day (long)</h3>
+<p><strong>JS.getLongDay(n)</strong></p>
+<pre><code class="language-Javascript">let day = JS.getLongDay(3); // Wednesday</code></pre>
+<p>Returns day of week spelled out.</p>
+<hr />
+<pre><code class="language-Javascript">//Examples of date output
+JS.getMDY()                   // 08/29/2019
+JS.getYMD()                   // 2019-08-29
+JS.getHM()                    // 10
+JS.todayMon()                 // 08
+JS.todayDay()                 // 4
+JS.getShortDay(JS.todayDay()) // Thu
+JS.getLongDay(JS.todayDay())  // Thursday
+JS.getShortMon(JS.todayMon()) // Aug
+JS.getLongMon(JS.todayMon())  // Sepember
+JS.todayYear();               // 2019
+let mydate = JS.addDays(8);   // + 8 days
+JS.getYMD(mydate)             // 2019-09-06
+JS.getMDY(mydate)             // 09/06/2019
+JS.getShortMon(JS.todayMon(mydate))
+                            // Sep
+JS.getLongDay(JS.todayDay(mydate));
+                            // Friday</code></pre>
+<h6>Here endith this document</h6>
+  <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+  </html>

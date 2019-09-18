@@ -1,0 +1,331 @@
+
+  <!DOCTYPE HTML>
+  <html lang='en-US'>
+  <head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>doc/allLibs.md</title>
+<!--
+This source uses the 'highlight.js' library
+Copyright (c) 2006, Ivan Sagalaev
+All rights reserved.
+-->
+  <link rel='stylesheet'
+        href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/default.min.css'>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js'></script>
+
+  </head>
+  <body>
+<p><a name="top"></a></p>
+<h1>Php Libraries for Web Dev</h1>
+<ol>
+<li><a href="#list"> Create an HTML <code>&lt;select&gt;</code> List </a></li>
+<li><a href="#table"> Create an HTML Table </a></li>
+<li><a href="#crypt"> Encryption Decryption </a></li>
+<li><a href="#press"> Compression Decompression </a></li>
+<li><a href="#log"> console_log for PHP </a></li>
+</ol>
+<hr />
+<hr />
+<p><a name="list"></a></p>
+<h2>createList <a href="#top" title="top">^</a></h2>
+<p>include "createList.php";</p>
+<p>Used to build a formatted HTML select list.</p>
+<hr />
+<h3>function: createList(array,string,bool,string,bool)</h3>
+<ol>
+<li>array or csv string</li>
+<li>the SELECT id (string)</li>
+<li>[onchange code] or FALSE</li>
+<li>[first option text] or FALSE</li>
+<li>[size value] or FALSE</li>
+</ol>
+<p>Examples:</p>
+<pre><code class="language-php">/*
+  createList is a Php function
+*/
+
+echo createList(
+      $array,
+      "ID",
+      false,
+      "select one",
+      false);
+
+echo createList(
+      $myArr,
+      "SEL",
+      "alert(this.options[this.selectedIndex].text)",
+      false,
+      5);</code></pre>
+<hr />
+<hr />
+<p><a name="table"></a></p>
+<h2>Tblrows <a href="#top" title="top">^</a></h2>
+<p>include "Tblrows.php";</p>
+<p>Helps format data into an HTML a table.
+Formats HTML table one row at a time.
+The row can be in the form of: a string
+with comma delimited values; an
+array; or a row returned from
+a database resultset. These
+functions will not create the HTML
+<code>&lt;table&gt;</code> and <code>&lt;/table&gt;</code> tags. That and
+any styling are left to the coder.</p>
+<p><em>[Optionally, the 1st column of the
+constructed HTML table may contain
+a link to a Javascript function
+whose single parameter value is determined
+by the last column value of the input
+array or resultset row. When this
+option is used do not include the 
+column NAME for that column in 
+the table heading. You will have to
+provide the actual Javascript 
+function in your rendered page.]</em></p>
+<hr />
+<h3>Class: Tblrow(string)</h3>
+<p>Constructor sets the column formats:</p>
+<ul>
+<li><strong>&gt;</strong>     left justify column data</li>
+<li><strong>d</strong>     format to *.99 and right justify</li>
+<li><strong>></strong>    right justify column data</li>
+<li><strong>-</strong>    center column data</li>
+</ul>
+<p>Example: </p>
+<pre><code class="language-php">$tbl = new Tblrow("&lt;,&lt;,d,&gt;,&lt;");  // no optional link column
+$tbl = new Tblrow("&lt;,&lt;,d,&gt;,&lt;", "alert");  // link function name</code></pre>
+<h3>function: tblhead(array|string)</h3>
+<p>The HTML table heading may be provided in one of two ways:</p>
+<ul>
+<li>string with comma delimited values</li>
+<li>array of string values</li>
+</ul>
+<p>Examples:</p>
+<pre><code class="language-php">$tbl-&gt;tblhead("Name,Email,Amount,Account,Type");  // string with csv
+$tbl-&gt;tblhead( array("Name","Email","Amount","Account","Type") );  // array</code></pre>
+<p>By using an array for headings you can add more functionality as shown below.</p>
+<pre><code>$ahead = array(
+  "&lt;a onclick='alert(0);'&gt;Memory, of&lt;/a&gt;",
+  "&lt;a onclick='alert(1);'&gt;Amount&lt;/a&gt;",
+  "&lt;a onclick='alert(2);'&gt;Remarks&lt;/a&gt;",
+  "&lt;a onclick='alert(\"Three\", 3);'&gt;Attended&lt;/a&gt;"
+  );
+echo $Trow-&gt;tblhead($ahead);  // array
+</code></pre>
+<hr />
+<h3>function: tblrow(array | csv)</h3>
+<p>Example:</p>
+<pre><code class="language-php">tbl-&gt;tblrow($Data); // array or row from resultset or csv string
+tbl-&gt;tblrow(array("John Doe","abc@hello.com",123.99,"01001234","active"));  // array
+tbl-&gt;tblrow("John Doe,abc@123.com,100.90,01001234,closed");  //  simple csv string</code></pre>
+<p>Below is an example for coding and SQL query result.
+This example uses the optional function name in the constructor
+which will create a column 1 of function links whose parameter
+value will be the last column value of the resultset rows. In
+this example that value would be the database column <code>member_rowid</code>.</p>
+<pre><code class="language-php">include "Tblrows.php";
+
+$db = new SQLite3('savetest.db');
+
+$sql = "SELECT in_mem_honor, amount_paid, remarks, attended, member_rowid
+from tbldonation
+where in_mem_honor &lt;&gt; ''";  // the query string
+
+$results = $db-&gt;query($sql);  // query database
+$ar = $results-&gt;fetchArray(SQLITE3_NUM); // get the 1st row (array)
+if (!$ar) {
+    die("No rows returned");
+}
+
+//  instantiate a Tblrow class object
+$Trow = new Tblrow("&lt;,d,&lt;,-", "alert");  // using optional function name
+
+//  print the open table tag
+echo "&lt;table cellspacing=0 cellpadding=4 border=1&gt;\n";  
+
+//  create the table headings row with the tblhead method
+echo $Trow-&gt;tblhead("Memory of,Amount,Remarks,Attended");  // 1 string arg
+
+//  loop through resultset outputting each formatted table row
+do {
+
+  echo $Trow-&gt;tblrow($ar); // each row of resultset is an array
+
+} while ( $ar = $results-&gt;fetchArray(SQLITE3_NUM) );
+
+echo "&lt;/table&gt;\n";  // print the close table tag
+</code></pre>
+<table cellspacing="0" cellpadding="4" border="1"><tr><th>^</th>
+<th>Memory of</th>
+<th>Amount</th>
+<th>Remarks</th>
+<th>Attended</th>
+</tr><tr><td><a onclick="alert(12);">  »  </a></td>
+<td>mom</td>
+<td align="right">1,000.00</td>
+<td></td>
+<td align="center"></td>
+</tr><tr><td><a onclick="alert(49);">  »  </a></td>
+<td>Antony and Cleopatra</td>
+<td align="right">11.00</td>
+<td>Testing</td>
+<td align="center"></td>
+</tr><tr><td><a onclick="alert(5);">  »  </a></td>
+<td>Sponsor</td>
+<td align="right">250.00</td>
+<td></td>
+<td align="center">1</td>
+</tr><tr><td><a onclick="alert(36);">  »  </a></td>
+<td>Sponsor</td>
+<td align="right">250.00</td>
+<td></td>
+<td align="center"></td>
+</tr><tr><td><a onclick="alert(9);">  »  </a></td>
+<td>Sponsor</td>
+<td align="right">300.00</td>
+<td></td>
+<td align="center">1</td>
+</tr><tr><td><a onclick="alert(50);">  »  </a></td>
+<td>Sponsor</td>
+<td align="right">300.00</td>
+<td>';sql injection</td>
+<td align="center">1</td>
+</tr><tr><td><a onclick="alert(54);">  »  </a></td>
+<td>Chocolate Factory</td>
+<td align="right">22.22</td>
+<td>Irish Cats Love
+Chocolate</td>
+<td align="center">1</td>
+</tr><tr><td><a onclick="alert(54);">  »  </a></td>
+<td>sponsor</td>
+<td align="right">250.00</td>
+<td></td>
+<td align="center">1</td>
+</tr><tr><td><a onclick="alert(58);">  »  </a></td>
+<td>The Star</td>
+<td align="right">250.00</td>
+<td>Test</td>
+<td align="center">1</td>
+</tr><tr><td><a onclick="alert(60);">  »  </a></td>
+<td>Jack Black</td>
+<td align="right">250.00</td>
+<td>KOOL</td>
+<td align="center">1</td>
+</tr><tr><td><a onclick="alert(137);">  »  </a></td>
+<td>Edward Pierce (Father)</td>
+<td align="right">100.00</td>
+<td></td>
+<td align="center">1</td>
+</tr><tr><td><a onclick="alert(151);">  »  </a></td>
+<td>Jon Steele</td>
+<td align="right">1,500.00</td>
+<td></td>
+<td align="center">0</td>
+</tr></table>
+<p>User codes the <code>&lt;table...&gt;</code> and <code>&lt;/table&gt;</code> tags manually.</p>
+<p><small>end of document</small></p>
+<hr />
+<hr />
+<p><a name="crypt"></a></p>
+<h2>Cryptoo <a href="#top" title="top">^</a></h2>
+<p><code>include "Cryptoo.php";</code></p>
+<p>Encryption for Php using Sodium.</p>
+<h3>class: Cryptoo</h3>
+<p>no constructor</p>
+<pre><code class="language-php">$cry = new Cryptoo();</code></pre>
+<hr />
+<h3>function: encrypt(string)</h3>
+<p>Example:</p>
+<pre><code class="language-php">$enc = $cry-&gt;encrypt("text to be encrypted...");</code></pre>
+<hr />
+<h3>function: decrypt(encrypted string)</h3>
+<p>Example:</p>
+<pre><code class="language-php">$ptext = $cry-&gt;decrypt($enc);</code></pre>
+<hr />
+<h3>function: setKey()</h3>
+<p><code>setKey()</code> creates a key using <code>sodium_crypto_secretbox_keygen()</code>.
+While your Cryptoo object is instantiated it keeps the key generated with
+<code>setKey()</code> in memory. If you encrypt <strong>and</strong> decrypt <em>without using this function</em>
+Cryptoo will use a static pre-generated key. Without using
+<code>setKey()</code> your text is still encrypted but there is
+overall <em>much less security</em> because of the 
+unchanging static key. However, in situations where this
+may be appropriate you can do encryption without having
+to store or transfer a key between object instantiations. </p>
+<p>Example:</p>
+<pre><code class="language-php">$cry-&gt;setKey();</code></pre>
+<hr />
+<h3>function: delKey()</h3>
+<p>zeroes out the Cryptoo key buffer memory</p>
+<p>Example:</p>
+<pre><code class="language-php">$cry-&gt;delKey();</code></pre>
+<hr />
+<h3>function: exportKey()</h3>
+<p>After using <code>setKey()</code> you can obtain a text version
+of the key with this function.</p>
+<p>Example:</p>
+<pre><code class="language-php">$key = $cry-&gt;exportKey();</code></pre>
+<hr />
+<h3>function: importKey()</h3>
+<p>Rather than using <code>setKey()</code> you can use
+this function to import (set) a previously
+exported key.</p>
+<p>Example:</p>
+<pre><code class="language-php">$cry-&gt;importKey($key);</code></pre>
+<hr />
+<hr />
+<p><a name="press"></a></p>
+<h2>Arcgz <a href="#top" title="top">^</a></h2>
+<p><code>include "Arcgz.php";</code></p>
+<p>File compression &amp; decompression.</p>
+<h3>class: Arcgz</h3>
+<p>no constructor</p>
+<pre><code class="language-php">$z = new Arcgz();</code></pre>
+<hr />
+<h3>function: putgz(string, string)</h3>
+<p>Create a compressed .gz file from another file.</p>
+<p>Example:</p>
+<pre><code class="language-php">$z-&gt;putgz("audit.txt", "audit1.gz");</code></pre>
+<hr />
+<h3>function: readgz(string)</h3>
+<p>Returns the uncompressed contents of a
+compressed (gz) file.</p>
+<p>Example:</p>
+<pre><code class="language-php">echo $z-&gt;readgz("audit3.gz");</code></pre>
+<hr />
+<h3>function: putungz(string, string)</h3>
+<p>Create an uncompressed file from
+a compressed (gz) file.</p>
+<p>Example:</p>
+<pre><code class="language-php">$z-&gt;putungz("audit2.gz", "audit.txt");</code></pre>
+<hr />
+<hr />
+<p><a name="log"></a></p>
+<h2>Console_Log for PHP <a href="#top" title="top">^</a></h2>
+<p>Lifted code from php.net documentation</p>
+<p><small>console_log.php contains the following code:</small></p>
+<pre><code class="language-php">function console_log( $data ) {
+  echo '&lt;script&gt;';
+  echo 'console.log('. json_encode( $data ) .')';
+  echo '&lt;/script&gt;';
+}</code></pre>
+<p>Sample usage:</p>
+<pre><code class="language-php">include "../images/console_log";
+
+$aryvar = array(1,2,3);
+$a = "some string value";
+$b = 1231.21;
+
+console_log($a);
+console_log("var \$a = " . $a);
+console_log( $aryvar );
+console_log( [$a, $b, $aryvar] );</code></pre>
+<p>Output in the console:</p>
+<p><img src="../images/console.png" alt="alttext" title="title" /></p>
+<hr />
+<hr />
+<hr />
+  <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+  </html>
