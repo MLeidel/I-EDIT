@@ -1,11 +1,5 @@
-<style>
-body {
-  font: 11pt sans-serif;
-  width: 550px;
-}
-</style>
 
-#I-EDIT 
+# I-EDIT 
 
 ### Internet Editor
 
@@ -40,7 +34,7 @@ the browser tabs. I-EDIT will work with any
   * Recognizes .md files. Renders HTML from markdown documents.
 
 ---
-##Some Details:
+## Some Details:
 
 * **Written with HTML, CSS, Javascript, PHP**
 * **Uses several powerful components:**
@@ -49,7 +43,7 @@ the browser tabs. I-EDIT will work with any
   * Parsedown - [learn more](https://github.com/erusev/parsedown/blob/master/README.md "Github")
   * highlight.js [^2] - [learn more](https://github.com/highlightjs/highlight.js "Github")
   [^2]: Copyright (c) 2006, Ivan Sagalaev All rights reserved.
-  * myJS - my own downsized "_JQuerian_" library [overview](https://mldev.io/TArea/user/config/myJSref.html "mldev.io")
+  * myJS - my own downsized "_JQuerian_" library [overview](doc/myJSref.html "myJS")
 * **Ace Customizations to assist coding:**
   * Ctrl-s => Save
   * Ctrl-r => Render in browser (tab or split frame)
@@ -81,25 +75,25 @@ the browser tabs. I-EDIT will work with any
 
   * Pre-themed for HTML, JAVASCRIPT, PHP, CSS, and MARKDOWN languages
 
-  For more details look at [Quick Help](../ieditHelp.html)
+  For more details look at [Quick Help](doc/ieditHelp.html)
 
-###Screen Shots:
+### Screen Shots:
 
 You can open browser tabs as all editor (iedit.html) or split editor and render frame (iedit2.html)
-![I-EDIT](../images/tabNOframe.png "All Editor")
+![I-EDIT](images/tabNOframe.png "All Editor")
 
-![I-EDIT](../images/tabwframe.png "Split Editor/Frame")
+![I-EDIT](images/tabwframe.png "Split Editor/Frame")
 
-![I-EDIT](../images/toolbar1.png "main navigation")
+![I-EDIT](images/toolbar1.png "main navigation")
 
-![I-EDIT](../images/toolbar2.png "tool navigation")
+![I-EDIT](images/toolbar2.png "tool navigation")
 
 code clips and links can all be changed
-![I-EDIT](../images/ClipsWindow.png "Clips")
+![I-EDIT](images/ClipsWindow.png "Clips")
 
-![I-EDIT](../images/gfilesys.png "Grep & Find")
+![I-EDIT](images/gfilesys.png "Grep & Find")
 
-![I-EDIT](../images/designPage.png "Design Page")
+![I-EDIT](images/designPage.png "Design Page")
 
 #Installation
 
