@@ -75,7 +75,7 @@ the browser tabs. I-EDIT will work with any
 
   * Pre-themed for HTML, JAVASCRIPT, PHP, CSS, and MARKDOWN languages
 
-  For more details look at [Quick Help](../ieditHelp.html)
+  For more details look at [Quick Help](https://mldev.io/TArea/user/ieditHelp.html)
 
 ### Screen Shots:
 
