@@ -41,7 +41,7 @@ Chromium based browser > version 24, and Firefox.
   * myJS - my own downsized "_JQuerian_" library [overview](https://mldev.io/TArea/user/config/myJSref.html "mldev.io")
   * Pre-themed for HTML, JAVASCRIPT, PHP, CSS, JSON, and MARKDOWN languages
 
-  For more details look at [Quick Help](../ieditHelp.html)
+  For more details look at [Quick Help](https://mldev.io/TArea/user/ieditHelp.html)
 
 ### Screen Shots:
 
@@ -55,6 +55,7 @@ You can open browser tabs as all editor (iedit.html) or split editor and render 
 ![I-EDIT](images/toolbar2.png "tool navigation")
 
 code clips and links can all be changed
+
 ![I-EDIT](images/ClipsWindow.png "Clips")
 
 ![I-EDIT](images/gfilesys.png "Grep & Find")
