@@ -46,20 +46,20 @@ Chromium based browser > version 24, and Firefox.
 ### Screen Shots:
 
 You can open browser tabs as all editor (iedit.html) or split editor and render frame (iedit2.html)
-![I-EDIT](../images/tabNOframe.png "All Editor")
+![I-EDIT](images/tabNOframe.png "All Editor")
 
-![I-EDIT](../images/tabwframe.png "Split Editor/Frame")
+![I-EDIT](images/tabwframe.png "Split Editor/Frame")
 
-![I-EDIT](../images/toolbar1.png "main navigation")
+![I-EDIT](images/toolbar1.png "main navigation")
 
-![I-EDIT](../images/toolbar2.png "tool navigation")
+![I-EDIT](images/toolbar2.png "tool navigation")
 
 code clips and links can all be changed
-![I-EDIT](../images/ClipsWindow.png "Clips")
+![I-EDIT](images/ClipsWindow.png "Clips")
 
-![I-EDIT](../images/gfilesys.png "Grep & Find")
+![I-EDIT](images/gfilesys.png "Grep & Find")
 
-![I-EDIT](../images/designPage.png "Design Page")
+![I-EDIT](images/designPage.png "Design Page")
 
 # Installation
 
