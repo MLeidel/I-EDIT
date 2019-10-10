@@ -62,9 +62,13 @@ code clips and links can all be changed
 ![I-EDIT](images/designPage.png "Design Page")
 
 # Installation
+
 ---
+
 NOTE: iedit.zip is still being modified almost weekly
+
 ---
+
 Your server:
   * LAMP (~~MySQL~~)
   
