@@ -174,7 +174,7 @@ __*See ALL keyboard shortcuts with Ctrl-Alt-h*__ (_active when editor has focus_
 * __Ctrl-__ , __Ctrl+__ => font smaller , larger
 * __Ctrl-/__ => toggle (line or group) comment
 
-[Ace built-in shortcuts](ieditKeyCuts.html "https://ace.c9.io/")
+[Ace built-in shortcuts](https://ace.c9.io/demo/keyboard_shortcuts.html "https://ace.c9.io/")
 
 __*See ALL keyboard shortcuts with Ctrl-Alt-h*__ (_active when editor has focus_)
 
