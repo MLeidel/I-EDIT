@@ -62,13 +62,15 @@ code clips and links can all be changed
 ![I-EDIT](images/designPage.png "Design Page")
 
 # Installation
-
+---
+NOTE: iedit.zip is still being modified almost weekly
+---
 Your server:
   * LAMP (~~MySQL~~)
   
 on your server:
   * create a home directory for I-EDIT
-  * unzip i-edit.zip into that directory  
+  * unzip iedit.zip into that directory  
     some other folders will be created
   * make sure permissions are set correctly  
     for all the new files
