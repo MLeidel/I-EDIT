@@ -16,16 +16,6 @@ Also, for students, a "look under the hood" provides some solid code samples.
 
 ![I-EDIT](images/toolbarHelp.png "main navigation")
 
-<style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}  
-th, td {
-  padding: 5px;
-}
-</style>
-
 | sym | input   | click | example         | explanation |
 |:---:| :---:   | :---  | :---            | :--- |
 |  /  |directory|Save   | `/newdir`       | create new directory under current dir |
