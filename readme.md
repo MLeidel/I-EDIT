@@ -65,7 +65,7 @@ code clips and links can all be changed
 
 ---
 
-NOTE: iedit.zip is still being modified almost weekly
+NOTE: iedit.zip is still being updated frequently
 
 ---
 
