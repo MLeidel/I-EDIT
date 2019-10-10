@@ -1,10 +1,3 @@
-<style>
-body {
-  font: 11pt sans-serif;
-  width: 550px;
-}
-</style>
-
 # I-EDIT 
 
 ### Internet Editor
