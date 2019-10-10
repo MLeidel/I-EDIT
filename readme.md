@@ -54,6 +54,7 @@ Open browser tabs as all editor (iedit.html) or split editor and render frame (i
 ![I-EDIT](images/toolbar2.png "tool navigation")
 
 code clips and links can all be changed
+
 ![I-EDIT](images/ClipsWindow.png "Clips")
 
 ![I-EDIT](images/gfilesys.png "Grep & Find")
@@ -78,5 +79,5 @@ from your browser:
   * .../*home*/iedit2.html
     will launch the split page editor
     
-e n d  10/04/2019
+e n d  10/10/2019
 
