@@ -1,9 +1,3 @@
-<style type="text/css">
-body {
-  font: normal 12pt sans-serif;
-}
-</style>
-
 
 <a name="top"></a>
 # myJS function Reference
