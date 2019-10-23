@@ -335,7 +335,7 @@ console_log( [$a, $b, $aryvar] );
 
 Output in the console:
 
-![alttext](../images/console.png "title")
+![alttext](images/console.png "title")
 
 ---
 ---
