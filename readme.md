@@ -46,20 +46,20 @@ Chromium based browser > version 24, and Firefox.
 ### Screen Shots:
 
 Open browser tabs as all editor (iedit.html) or split editor and render frame (iedit2.html)
-![I-Edit](../images/tabNOframe.png "All Editor")
+![I-Edit](images/tabNOframe.png "All Editor")
 
-![I-Edit](../images/tabwframe.png "Split Editor/Frame")
+![I-Edit](images/tabwframe.png "Split Editor/Frame")
 
-![I-Edit](../images/toolbar1.png "main navigation")
+![I-Edit](images/toolbar1.png "main navigation")
 
-![I-Edit](../images/toolbar2.png "tool navigation")
+![I-Edit](images/toolbar2.png "tool navigation")
 
 code clips and links can all be changed
-![I-Edit](../images/ClipsWindow.png "Clips")
+![I-Edit](images/ClipsWindow.png "Clips")
 
-![I-Edit](../images/gfilesys.png "Grep & Find")
+![I-Edit](images/gfilesys.png "Grep & Find")
 
-![I-Edit](../images/designPage.png "Design Page")
+![I-Edit](images/designPage.png "Design Page")
 
 # Installation
 
@@ -85,5 +85,5 @@ from your browser:
   * .../*home*/iedit2.html
     will launch the split page editor
     
-e n d  10/04/2019
+e n d  10/23/2019
 
