@@ -10,11 +10,11 @@ This platform is intended for web developers (coders.)
 
 # Main Navigation
 
-![I-Edit](../images/tbdiagram.png "main navigation")
+![I-Edit](images/tbdiagram.png "main navigation")
 
 # File System Actions
 
-![I-Edit](../images/toolbarHelp.png "main navigation")
+![I-Edit](images/toolbarHelp.png "main navigation")
 
 <style>
 table, th, td {
@@ -219,5 +219,5 @@ root/domain../app files and sub directories
 
 
 
-end 10/16/2019
+end 10/23/2019
 
