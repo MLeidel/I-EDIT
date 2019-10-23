@@ -180,8 +180,6 @@ Chocolate</td><td align='center'>1</td></tr>
 
 User codes the `<table...>` and `</table>` tags manually.
 
-<small>end of document</small>
-
 ---
 ---
 
@@ -337,7 +335,7 @@ console_log( [$a, $b, $aryvar] );
 
 Output in the console:
 
-![alttext](images/console.png "title")
+![alttext](../images/console.png "title")
 
 ---
 ---

@@ -1,30 +1,40 @@
-**I-EDIT server based IDE**  
-**User Guide**  
+**I-Edit server based IDE**
+**User Guide**
 `ieditHelp`
 
-_<center>An advanced web based code editor for the LAMP fullstack developer.</center>_
+_<center>An advanced web based code editor for LAMP development</center>_
 
 <small>
-This project is coded without "bells and whistles."
-The assumption is that user's of this application are coders who would know
-how to modify the code to their own preferences - enhancements. For user's just
-learning how to code the operation is straight forward.
-Also, for students, a "look under the hood" provides some solid code samples.
+This platform is intended for web developers (coders.)
 </small>
+
+# Main Navigation
+
+![I-Edit](../images/tbdiagram.png "main navigation")
 
 # File System Actions
 
-![I-EDIT](images/toolbarHelp.png "main navigation")
+![I-Edit](../images/toolbarHelp.png "main navigation")
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+</style>
 
 | sym | input   | click | example         | explanation |
 |:---:| :---:   | :---  | :---            | :--- |
 |  /  |directory|Save   | `/newdir`       | create new directory under current dir |
 |  -  |file     |Save   | `-curfile.js`   | minify current js file to curfile.min.js * |
-|  <  |file     |Save   | `<fullpath/file`| copy a fullpath/file to the current directory|
-|  +  |directory|Save   | `+fullpath/dir` | copy current directory & files to new directory |
+|  <  |file     |Save   | `<path/file`    | copy a fullpath/file to the current directory|
+|  +  |directory|Save   | `+path/dir`     | copy current directory & files to new directory |
 |     |file     |Del    | `curfile.html`  | delete the current file |
 |     |_blank_  |Del    |                 | delete the current directory and files |
-|     |file mask|Del    | `*.txt`         | delete files with a file mask | 
+|     |file mask|Del    | `*.txt`         | delete files with a file mask |
 
 **Rename (save-as) current file**
 : change the file name and _Save_
@@ -33,25 +43,25 @@ Also, for students, a "look under the hood" provides some solid code samples.
 : change the directory and _Save_
 
 **NOTES**
-* JS Minification*  
-You may have to re-complile the jsmin program to work on your system  
+* JS Minification*
+You may have to re-complile the jsmin program to work on your system
 find at `https://github.com/douglascrockford/JSMin`
 
-* The single checkbox to the right of the file input box may be  
+* The single checkbox to the right of the file input box may be
 checked to append the next opened file to the current file.
 
-* Hitting Ctrl-s, or hitting Enter in the file input field  
-is the same as hitting the "Save" button.  
+* Hitting Ctrl-s, or hitting Enter in the file input field
+is the same as hitting the "Save" button.
 
 * The '+' command will not copy subdirectories.
 
 # Explaining Alt-z
 
-If you type a key word, and then hit Alt-z, then previously 
-stored text associated with that key word is inserted into your 
+If you type a key word, and hit Alt-z, then previously
+stored text associated with that key word is inserted into your
 code over the key word. The key words and associated text (which you
-can modify) are stored in the file **`config/tags.js`**. 
-I-EDIT comes with many examples.  
+can modify) are stored in the file **`config/tags.js`**.
+I-Edit comes with many examples.
 In the editor **Alt-u** opens a new browser tab for editing
 the config/tags.js file.
 
@@ -65,7 +75,7 @@ const atags = {
 	"checkbox": "<label for='AA'>description</label>\n<input type='checkbox' id='AA' name='postfield' value='postvalue'>",
 ```
 
-For example, if you type `html`, and hit Alt-z 
+For example, if you type `html`, and hit Alt-z
 the following code (which is stored in config/tags.js) would be inserted:
 ```html
 <!DOCTYPE HTML>
@@ -80,7 +90,7 @@ the following code (which is stored in config/tags.js) would be inserted:
 </body>
 </html>
 ```
-If you hit Alt-z after typing something that is NOT a key word defined in tags.js,  
+If you hit Alt-z after typing something that is NOT a key word defined in tags.js,
 then it creates a tag pair with with the word you typed:
 ```html
 <span></span> <!-- span was not a key word in tags.js file -->
@@ -91,19 +101,19 @@ the opening tag_.
 
 # Explaining *Alt-a* (and *Alt-w*)
 
-If you select some text and click Alt-a, a prompt will then ask you  
-to enter a `tag` name or * | ** | $ | _ | __  
+If you select some text and click Alt-a, a prompt will then ask you
+to enter a `tag` name or * | ** | $ | _ | __
 Your selected text is now enclosed with the tag name you entered
 or the special characters you entered.
 
 Examples (you select `text`)
-* you entered `small` in the prompt  
+* you entered `small` in the prompt
 `<small>text</small>`
 
-* you entered `**` in the prompt  
+* you entered `**` in the prompt
 `**text**`
 
-* you entered `$` in the prompt  
+* you entered `$` in the prompt
 `${text}`
 
 * see below for all the Alt-a commands
@@ -116,12 +126,12 @@ insert into your text as it does with Alt-z.
 
 # Keyboard Shortcuts
 
-The _Ace_ editor of course comes with many keyboard shortcuts,  
-and we've added a few more with I-EDIT.
+The _Ace_ editor of course comes with many keyboard shortcuts,
+and we've added a few more with I-Edit.
 
 __*See ALL keyboard shortcuts with Ctrl-Alt-h*__ (_active when editor has focus_)
 
-## I-EDIT Added Shortcuts
+## I-Edit Added Shortcuts
 
 (_active when editor has focus_)
 * __Ctrl-s__ => Saves the file
@@ -132,7 +142,7 @@ __*See ALL keyboard shortcuts with Ctrl-Alt-h*__ (_active when editor has focus_
 * __Alt-z__ => Insert extended text for key word (tags.js)  
   Default: make tag using selected text `<text></text>`
 * __Alt-x__ => view all commands in the tags.js file
-* __Alt-a__ => wraps **SELECTED** text after prompting for input   
+* __Alt-a__ => wraps **SELECTED** text after prompting for input  
   prompt = _tag_ => formats **selected** text to `<tag>text</tag>`  
   prompt = **scase** => converts **selected** text to SentenceCase  
   prompt = **$** => formats **selected** text to `${text}` template string  
@@ -140,10 +150,11 @@ __*See ALL keyboard shortcuts with Ctrl-Alt-h*__ (_active when editor has focus_
   prompt = **/** => partial line comment Php, Javascript `/* comment */`  
   prompt = **!** => partial line comment html `<!-- comment -->`  
   prompt = **'** => wraps **selected** text in single quotes  
-  prompt = **"** => wraps **selected** test in double quotes
+  prompt = **"** => wraps **selected** test in double quotes  
 * __Alt-w__ => Repeat last __Alt-a__ with new selected text
 * __Alt-c__ => launch Clips and Links window (uses webdev.dat)
 * __Alt-h__ => this help page
+* __Alt-i__ => insert color code from color picker
 * __Alt-u__ => opens new browser tab to edit config/tags.js file
 * __Alt-n__ => opens new "full editor" browser tab with current file
 * __Ctrl-Alt-n__ => opens new "Half editor" tab with current file
@@ -172,12 +183,11 @@ __*See ALL keyboard shortcuts with Ctrl-Alt-h*__ (_active when editor has focus_
 # System Files
 
 FILES AND DESCRIPTIONS:  
-where 'root' is the I-EDIT 'root' folder
+where 'root' is the I-Edit 'root' folder
 not necessarily the web server root.
 ```text
 root/config/cssdom.html - document object properties
 root/config/cssstyle.html - css for Javascript
-root/config/exec.php - grep & find utility page
 root/config/tags.js - file for (Alt-z) key word extensions
 root/config/webdev.dat - clips text file
 root/iedit.html - the text editor
@@ -189,13 +199,12 @@ root/ieditHand.php - file handler for iedit.html
 root/ieditHelp.html - this file
 root/ieditKeyCuts.html - "Ace" keyboard shortcuts
 root/ieditres9.php - design tools
-root/ieditrt1.html - realtime HTML/JS
-root/ieditrt2.html - realtime HTML/JS 
 root/ieditTools.html - tools menu for iedit.html
 root/ieditUfile.php - file upload
 root/ieditUhand.php - file upload handler
 root/images/... - image files
 root/js/... - myJS-1.2.min.js and myJS-1.2.js ...
+root/exec.php - grep & find utility page
 root/jsmin - Douglas Crockford JS minify program
 root/md.pdf - markdown guide pdf
 root/min.sh - shell script used to process jsmin
@@ -210,5 +219,5 @@ root/domain../app files and sub directories
 
 
 
-end 10/01/2019
+end 10/16/2019
 
