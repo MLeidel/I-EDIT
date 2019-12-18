@@ -55,6 +55,7 @@ Open browser tabs as all editor (iedit.html) or split editor and render frame (i
 ![I-Edit](images/toolbar2.png "tool navigation")
 
 code clips and links can all be changed
+
 ![I-Edit](images/ClipsWindow.png "Clips")
 
 ![I-Edit](images/gfilesys.png "Grep & Find")
