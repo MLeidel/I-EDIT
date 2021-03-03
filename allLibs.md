@@ -1,5 +1,5 @@
 <a name="top"></a>
-# Php Libraries for Web Dev
+# Php Functions for Web Dev
 
 1. [ Create an HTML `<select>` List ](#list)
 1. [ Create an HTML Table ](#table)
