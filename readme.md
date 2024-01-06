@@ -57,28 +57,21 @@ code clips and links can all be changed
 
 ![I-Edit](images/designPage.png "Design Page")
 
+
+
+
+
 # Installation
-
----
-
-**NOTE: iedit.zip is still being updated frequently**
 
 ---
 
 Your server:
   
 on your server:
-  * create a home directory for I-Edit
-  * unzip i-edit.zip into that directory  
-    some other folders will be created
+  * unzip iedit onto a server directory  
+    some additional folders will be created
   * make sure permissions are set correctly  
     for all the new files
-    
-from your browser:
-  * .../*home*/iedit.html
-    will launch the full page editor
-  * .../*home*/iedit2.html
-    will launch the split page editor
-    
+        
 e n d  12/18/2019
 
