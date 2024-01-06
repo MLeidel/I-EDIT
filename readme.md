@@ -58,7 +58,7 @@ code clips and links can all be changed
 ![I-Edit](images/designPage.png "Design Page")
 
 
-[Explaining the Interface](iedithelp.md)
+[short User Guide](ieditHelp.md)
 
 
 # Installation
