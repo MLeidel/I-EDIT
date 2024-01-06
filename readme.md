@@ -2,22 +2,17 @@
 
 ### Internet Editor
 
-I-Edit is a server based code editor that you
-run in your browser.
+I-Edit is a server based code editor that runs in the browser.
 
 It is licensed as GNU GPL so you can hack the code. 
 
-I-Edit is a web app built around the "Ace" high performance code editor. 
-It is NOT a *WYSIWYG* editor, it is a code editor.
-It is designed for web app development. You install it on your web server. 
-Out of the box it is set up for LAMP full stack developement.
+I-Edit is a web app built around the "Ace" code editor. 
+Install it on your web server. 
 Themes, languages, and syntax highlighting can be altered with slight changes.
 File management, file upload, and links to many online tools are supported.
 I-Edit was used to build a better version of itself.
 
-I-Edit is a web app and therefore relies heavily on Javascript/HTML5 and the
-MDI and other functions of the web browser. I-Edit will work with any
-Chromium based browser > version 24, and Firefox.
+I-Edit is a web app and therefore relies heavily on Javascript/HTML5 and other functions of the web browser. 
   
 **Features built around the editor**
   
@@ -71,7 +66,6 @@ code clips and links can all be changed
 ---
 
 Your server:
-  * LAMP (~~MySQL~~)
   
 on your server:
   * create a home directory for I-Edit
