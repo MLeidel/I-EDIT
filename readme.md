@@ -1,6 +1,6 @@
 # I-Edit 
 
-### Internet Editor
+### Internet Code Editor
 
 I-Edit is a server based code editor that runs in the browser.
 
